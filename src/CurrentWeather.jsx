@@ -42,7 +42,10 @@ const CurrentWeather = () => {
 
     async function get_coordinates() {
         try {
-            const response = await axios.get("http://ip-api.com/json/");
+            const uri = "http://ip-api.com/json/";
+            const response = await axios.get(
+                `https://corsproxy.io{encodeURIComponent(${uri})}`,
+            );
             setLatitude(response.data.lat);
             setLongitude(response.data.lon);
             setHasCoordinates(true);
