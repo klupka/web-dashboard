@@ -18,6 +18,7 @@ const CurrentWeather = () => {
 
     const [current_weather_data, set_current_weather_data] = useState(null);
     const [time, setTime] = useState(new Date());
+    const [displayTime, setDisplayTime] = useState(null);
 
     async function get_current_weather_conditions() {
         try {
@@ -62,13 +63,16 @@ const CurrentWeather = () => {
         get_data();
     }, [hasCoordinates]);
 
-    const hours = time.getHours();
-    const minutes = time.getMinutes();
-    // Convert to 12-hour format
-    const displayHours = hours % 12 || 12;
-    // Determine AM/PM
-    const period = hours >= 12 ? "PM" : "AM";
-    const displayTime = `${displayHours}:${String(minutes).padStart(2, "0")} ${period}`;
+    useEffect(() => {
+        const hours = time.getHours();
+        const minutes = time.getMinutes();
+        // Convert to 12-hour format
+        const displayHours = hours % 12 || 12;
+        // Determine AM/PM
+        const period = hours >= 12 ? "PM" : "AM";
+        const displayTimeString = `${displayHours}:${String(minutes).padStart(2, "0")} ${period}`;
+        setDisplayTime(displayTimeString);
+    }, [time]);
 
     if (current_weather_data == null) {
         return (
