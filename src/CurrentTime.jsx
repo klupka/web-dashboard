@@ -35,7 +35,7 @@ const CurrentTime = () => {
         .replace(",", "");
 
     return (
-        <Card className="text-center flex flex-col justify-center items-center w-[600px] bg-[#18181b]/25 h-[300px]">
+        <Card className="text-center flex flex-col justify-center items-center w-[600px] h-[300px] glass-card">
             <div className="flex items-end">
                 <p className="text-[120px] leading-none">{displayTime}</p>
                 <p className="mb-2.5 ml-2">{period}</p>

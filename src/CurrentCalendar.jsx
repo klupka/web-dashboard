@@ -24,7 +24,7 @@ const CurrentCalendar = () => {
     const currentYear = currentDate.getFullYear();
 
     return (
-        <Card className="flex justify-center items-center aspect-square w-[300px] bg-[#18181b]/25">
+        <Card className="flex justify-center items-center aspect-square w-[300px] glass-card">
             <Calendar aria-label="Event date" className="border-none">
                 <Calendar.Header>
                     <div className="flex justify-between items-center w-full">
