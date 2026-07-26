@@ -6,8 +6,10 @@ import { Skeleton } from "@heroui/react";
 
 const CurrentWeather = () => {
     const api_key = import.meta.env.VITE_WEATHER_API_KEY;
-    const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
+    // const [latitude, setLatitude] = useState(null);
+    // const [longitude, setLongitude] = useState(null);
+    const latitude = import.meta.env.VITE_LATITUDE;
+    const longitude = import.meta.env.VITE_LONGITUDE;
     const [hasCoordinates, setHasCoordinates] = useState(false);
     const units_system = "IMPERIAL";
     const forecast_hours = 6;
@@ -40,24 +42,24 @@ const CurrentWeather = () => {
         return () => clearInterval(interval);
     }
 
-    async function get_coordinates() {
-        try {
-            const uri = "http://ip-api.com/json/";
-            const response = await axios.get(
-                `https://corsproxy.io{encodeURIComponent(${uri})}`,
-            );
-            setLatitude(response.data.lat);
-            setLongitude(response.data.lon);
-            setHasCoordinates(true);
-        } catch (error) {
-            console.error("Error:", error);
-        }
-    }
+    // async function get_coordinates() {
+    //     try {
+    //         const uri = "http://ip-api.com/json/";
+    //         const response = await axios.get(
+    //             `https://corsproxy.io{encodeURIComponent(${uri})}`,
+    //         );
+    //         setLatitude(response.data.lat);
+    //         setLongitude(response.data.lon);
+    //         setHasCoordinates(true);
+    //     } catch (error) {
+    //         console.error("Error:", error);
+    //     }
+    // }
 
     useEffect(() => {
-        get_coordinates();
-        if (latitude != null && longitude != null && hasCoordinates == true)
-            get_data();
+        // get_coordinates();
+        // if (latitude != null && longitude != null && hasCoordinates == true)
+        get_data();
     }, [hasCoordinates]);
 
     const hours = time.getHours();
