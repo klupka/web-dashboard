@@ -13,18 +13,7 @@ import ColorBends from "./ColorBends";
 const App = () => {
     return (
         <div className="relative w-full h-screen overflow-hidden">
-            {/* Background Video */}
-            {/* <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover -z-10"
-            >
-                <source src={backgroundVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video> */}
-            <div className="absolute inset-0 w-full h-full object-cover -z-10">
+            <div className="absolute inset-0 z-0">
                 <ColorBends
                     colors={["#3B82F6"]}
                     rotation={90}
@@ -42,15 +31,9 @@ const App = () => {
                     autoRotate={0}
                     color="#3B82F6"
                 />
-                {/* <Iridescence
-                    color={[0.8588235294117647, 0.7137254901960784, 1]}
-                    mouseReact={false}
-                    amplitude={0.1}
-                    speed={0.6}
-                /> */}
             </div>
-            {/* Dark Overlay (improves component readability) */}
-            <div className="absolute inset-0 bg-black/40 -z-10" />
+
+            {/* <div className="absolute inset-0 bg-black/40 -z-10" /> */}
 
             {/* Dashboard Components */}
             <div className="relative z-10 flex gap-5 w-full h-full justify-center items-center">
